@@ -5,10 +5,16 @@ api_version: 1
 threadsafe: yes
 
 handlers:
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+- url: /static
+  static_dir: stylesheets
 
+- url: /stylesheets/(.*\.(css))
+  static_files: stylesheets/\1
+  upload: stylesheets/(.*\.(css))
 - url: .*
   script: main.app
 
